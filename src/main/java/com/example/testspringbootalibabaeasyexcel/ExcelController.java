@@ -1,6 +1,5 @@
 package com.example.testspringbootalibabaeasyexcel;
 
-import com.alibaba.excel.EasyExcel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URLEncoder;
 
 @Controller
 @RequestMapping("excel")
@@ -20,16 +18,10 @@ public class ExcelController {
      */
     @GetMapping("download")
     public void download(HttpServletResponse response) throws IOException {
-        response.setContentType("application/vnd.ms-excel");
-        response.setCharacterEncoding("utf-8");
-        String fileName = URLEncoder.encode(
-                "测试_" + System.currentTimeMillis() + ".xlsx", "UTF-8")
-                .replaceAll("\\+", "%20");
-        response.setHeader("Content-disposition",
-                "attachment;filename*=utf-8''" + fileName);
-        EasyExcel.write(response.getOutputStream(), User.class)
-                .sheet("Sheet1")
-                .doWrite(DataUtil.getData());
+        ExcelUtil.download(response,
+                "中文" + System.currentTimeMillis() + ".xlsx",
+                User.class,
+                DataUtil.getData());
     }
 
     /**
