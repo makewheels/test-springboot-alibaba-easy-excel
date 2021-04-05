@@ -1,16 +1,10 @@
 package com.example.testspringbootalibabaeasyexcel;
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.io.File;
 
 public class WriteExcel {
-    /**
-     * https://www.yuque.com/easyexcel/doc/easyexcel
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         String path = "C:\\Users\\thedoflin\\Downloads\\新建文件夹";
         String fileName = "write_" + System.currentTimeMillis() + ".xlsx";
