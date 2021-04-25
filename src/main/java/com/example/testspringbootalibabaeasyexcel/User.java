@@ -16,7 +16,7 @@ import java.util.Date;
 @ContentRowHeight(42)
 public class User {
     @ExcelProperty("字符串标题")
-    @ColumnWidth(55)
+    @ColumnWidth(20)
     private String string;
 
     @ExcelProperty("日期标题")
