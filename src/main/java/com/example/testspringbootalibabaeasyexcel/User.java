@@ -1,17 +1,19 @@
 package com.example.testspringbootalibabaeasyexcel;
 
-import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
+import com.alibaba.excel.annotation.write.style.ContentRowHeight;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.File;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ContentRowHeight(42)
 public class User {
     @ExcelProperty("字符串标题")
     @ColumnWidth(55)
@@ -24,9 +26,9 @@ public class User {
     @ExcelProperty("数字标题")
     @ColumnWidth(13)
     private Double doubleData;
-    /**
-     * 忽略这个字段
-     */
-    @ExcelIgnore
-    private String ignore;
+
+    @ExcelProperty("图片")
+    @ColumnWidth(8)
+    private File image;
+
 }
